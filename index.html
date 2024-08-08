@@ -16,37 +16,40 @@
         align-items: center;
         background-color: black;
       }
-      img {
-        max-width: 100%;
-        max-height: 100%;
+      #fullscreenDiv {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
       }
     </style>
   </head>
   <body>
-    <img id="fullscreenImage" src="" alt="Fullscreen Image" />
+    <div id="fullscreenDiv"></div>
     <script>
       window.onload = function () {
         const urlParams = new URLSearchParams(window.location.search)
         const screenNumber = urlParams.get('screen')
 
         const images = {
-            1: 'cocina/ATMA_LOCALSHOPPING_COCINA_VACIO_A_P01.png',
-            2: 'cocina/ATMA_LOCALSHOPPING_COCINA_VACIO_A_P02.png',
-            3: 'cocina/ATMA_LOCALSHOPPING_COCINA_VACIO_A_P03.png',
-            4: 'cocina/ATMA_LOCALSHOPPING_COCINA_VACIO_A_P04.png',
-            5: 'cocina/ATMA_LOCALSHOPPING_COCINA_VACIO_A_P05.png',
-            6: 'huerta/ATMA_LOCALSHOPPING_HUERTA_VACIO_P06.png',
-            7: 'huerta/ATMA_LOCALSHOPPING_HUERTA_VACIO_P07.png',
-            8: 'huerta/ATMA_LOCALSHOPPING_HUERTA_VACIO_P08.png',
-            9: 'huerta/ATMA_LOCALSHOPPING_HUERTA_VACIO_P09.png',
-            10: 'huerta/ATMA_LOCALSHOPPING_HUERTA_VACIO_P10.png',
+          1: 'cocina/ATMA_LOCALSHOPPING_COCINA_VACIO_A_P01.png',
+          2: 'cocina/ATMA_LOCALSHOPPING_COCINA_VACIO_A_P02.png',
+          3: 'cocina/ATMA_LOCALSHOPPING_COCINA_VACIO_A_P03.png',
+          4: 'cocina/ATMA_LOCALSHOPPING_COCINA_VACIO_A_P04.png',
+          5: 'cocina/ATMA_LOCALSHOPPING_COCINA_VACIO_A_P05.png',
+          6: 'huerta/ATMA_LOCALSHOPPING_HUERTA_VACIO_P06.png',
+          7: 'huerta/ATMA_LOCALSHOPPING_HUERTA_VACIO_P07.png',
+          8: 'huerta/ATMA_LOCALSHOPPING_HUERTA_VACIO_P08.png',
+          9: 'huerta/ATMA_LOCALSHOPPING_HUERTA_VACIO_P09.png',
+          10: 'huerta/ATMA_LOCALSHOPPING_HUERTA_VACIO_P10.png',
         }
 
-        const imageElement = document.getElementById('fullscreenImage')
+        const fullscreenDiv = document.getElementById('fullscreenDiv')
         if (images[screenNumber]) {
-          imageElement.src = images[screenNumber]
+          fullscreenDiv.style.backgroundImage = `url(${images[screenNumber]})`
         } else {
-          imageElement.src = 'cocina/image1.png'
+          fullscreenDiv.style.backgroundImage =
+            'url(huerta/ATMA_LOCALSHOPPING_HUERTA_VACIO_P10.png)'
         }
       }
     </script>
